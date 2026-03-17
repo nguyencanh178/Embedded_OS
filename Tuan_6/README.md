@@ -4,19 +4,19 @@ Báo cáo Hệ điều hành nhúng - Tuần 6
 Điều khiển LED trên BeagleBone Black và tích hợp ứng dụng vào Buildroot
 -----------------------------------------------------------------------
 
-# 1. Mục tiêu bài thực hành
+# 1. Mục tiêu
 
-Trong bài thực hành tuần 6, các mục tiêu cần đạt được gồm:
+Trong tuần 6, các mục tiêu cần đạt gồm:
 
--   Điều khiển LED **USR3** trên **BeagleBone Black (BBB)** thông qua giao diện **sysfs của Linux**.
+-   Điều khiển LED USR3 trên BBB thông qua giao diện **sysfs của Linux**.
 
--   Viết chương trình **C** để điều khiển LED.
+-   Viết chương trình `C` để điều khiển LED.
 
--   Đóng gói chương trình thành **package trong Buildroot**.
+-   Đóng gói chương trình thành `package trong Buildroot`.
 
--   Tạo chương trình **LED nhấp nháy**.
+-   Tạo chương trình LED nhấp nháy.
 
--   Tạo **dịch vụ tự động chạy khi hệ thống khởi động**.
+-   Tạo dịch vụ tự động chạy khi hệ thống khởi động.
 
 * * * * *
 
