@@ -321,3 +321,25 @@ sudo umount /mnt
 chmod +x /usr/bin/hello
 /usr/bin/hello
 ```
+
+## 4. Biên dịch ứng dụng dùng thư viện cJSON
+
+- Bật thư viện cJSON trong Buildroot
+
+Vào thư mục buildroot
+```bash
+cd ~/workspace/buildroot-2024.02.1
+menuconfig
+```
+trỏ theo đường dẫn
+```bash
+Target packages
+    Libraries
+        JSON/XML
+            [*] cJSON
+```
+Toolchain nằm ở:
+```bash
+output/host/bin/
+```
+
