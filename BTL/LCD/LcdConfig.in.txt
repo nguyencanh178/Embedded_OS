@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LCD2004
+    bool "lcd2004 i2c driver"
+    help
+      Kernel module for LCD 2004 I2C using PCF8574

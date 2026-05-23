@@ -1,0 +1,6 @@
+config BR2_PACKAGE_MQ2SENSOR
+        bool "mq2sensor"
+        depends on BR2_LINUX_KERNEL
+        help
+          Kernel module for MQ2 gas sensor using ADS1115 via I2C bit-banging.
+          Developed by Jap + Group 7.

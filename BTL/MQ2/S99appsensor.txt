@@ -1,0 +1,64 @@
+#!/bin/sh
+
+start_app() {
+
+    printf "Starting sensor system: "
+
+    lsmod | grep -q mq2sensor || insmod /lib/modules/6.18.1/updates/mq2sensor.ko
+    lsmod | grep -q dht11 || insmod /lib/modules/6.18.1/updates/dht11.ko
+    lsmod | grep -q buzzer || insmod /lib/modules/6.18.1/updates/buzzer.ko
+    lsmod | grep -q lcd2004 || insmod /lib/modules/6.18.1/updates/lcd2004.ko
+
+    sleep 1
+
+    echo ON > /dev/mq2adc 2>/dev/null
+    echo ON > /dev/dht11 2>/dev/null
+
+    killall appsensor 2>/dev/null
+
+    /usr/bin/appsensor > /dev/null 2>&1 &
+
+    echo "OK"
+}
+
+stop_app() {
+
+    printf "Stopping sensor system: "
+
+    killall appsensor 2>/dev/null
+
+    echo OFF > /dev/mq2adc 2>/dev/null
+    echo OFF > /dev/dht11 2>/dev/null
+
+    rmmod lcd2004 2>/dev/null
+    rmmod buzzer 2>/dev/null
+    rmmod dht11 2>/dev/null
+    rmmod mq2sensor 2>/dev/null
+
+    echo "OK"
+}
+
+case "$1" in
+
+    start|ON)
+        start_app
+        ;;
+
+    stop|OFF)
+        stop_app
+        ;;
+
+    restart)
+        stop_app
+        sleep 1
+        start_app
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop|restart|ON|OFF}"
+        exit 1
+        ;;
+
+esac
+
+exit 0

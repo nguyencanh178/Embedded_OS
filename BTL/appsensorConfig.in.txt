@@ -1,0 +1,6 @@
+config BR2_PACKAGE_APPSENSOR
+        bool "appsensor"
+        select BR2_PACKAGE_CJSON
+        help
+          He thong giam sat cam bien MQ2, DHT11 va dieu khien Buzzer.
+          Tich hop Watchdog va ghi log JSON.
